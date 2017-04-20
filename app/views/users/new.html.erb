@@ -1,0 +1,25 @@
+<div>
+	<form action="/register" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<label>Email</label>
+		<input type="text" name="register[email]">
+		<div>
+			<label>Name</label>
+			<input type="text" name="register[name]">
+		</div>
+		<div>
+			<label>Password</label>
+			<input type="password" name="register[password]">
+		</div>
+		<div>
+			<label>Password Cofirmation</label>
+			<input type="password" name="register[password_confirmation]">
+		</div>
+		<input type="submit" value="Register">
+	</form>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<p><%= error %></p>
+		<% end %>
+	<% end %>
+</div>
